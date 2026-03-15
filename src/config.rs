@@ -18,7 +18,7 @@ pub struct AllowEntry {
 pub struct Config {
     /// Base URL of the Home Assistant instance, e.g. `http://homeassistant.local:8123`.
     pub ha_url: String,
-    /// Address the proxy listens on, e.g. `0.0.0.0:3000`.
+    /// Address the proxy listens on, e.g. `0.0.0.0:8080`.
     #[serde(default = "default_listen")]
     pub listen: String,
     /// Path to the file containing the HA bearer token. Defaults to `.token`.
@@ -33,7 +33,7 @@ pub struct Config {
 }
 
 fn default_listen() -> String {
-    "0.0.0.0:3000".to_string()
+    "0.0.0.0:8080".to_string()
 }
 
 fn default_token_file() -> String {
@@ -45,10 +45,12 @@ fn default_max_body_bytes() -> usize {
 }
 
 impl Config {
-    /// Load and validate configuration from `config.toml` in the current directory.
-    pub fn load() -> Result<Self> {
-        let raw = fs::read_to_string("config.toml").context("failed to read config.toml")?;
-        let cfg: Self = toml::from_str(&raw).context("failed to parse config.toml")?;
+    /// Load and validate configuration from the given path.
+    pub fn load(path: &str) -> Result<Self> {
+        let raw = fs::read_to_string(path)
+            .with_context(|| format!("failed to read config file '{}'", path))?;
+        let cfg: Self = toml::from_str(&raw)
+            .with_context(|| format!("failed to parse config file '{}'", path))?;
         cfg.validate()
     }
 
