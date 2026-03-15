@@ -24,6 +24,6 @@ WORKDIR /
 
 COPY --from=builder /build/target/release/ha-proxy /usr/local/bin/ha-proxy
 
-EXPOSE 3000
+EXPOSE 8080
 
 ENTRYPOINT ["/usr/local/bin/ha-proxy"]
