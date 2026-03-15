@@ -9,6 +9,10 @@ listen = "0.0.0.0:8080"
 # to the mount path (e.g. "/.token"). Defaults to ".token".
 token_file = ".token"
 
+# Maximum request body size in bytes. Requests exceeding this limit are
+# rejected with 413 before any processing occurs. Defaults to 65536 (64 KiB).
+# max_body_bytes = 65536
+
 # Allow-list: each [[allow]] entry declares a domain and which of its
 # services may be called. An empty `services` list means all services
 # for that domain are permitted.

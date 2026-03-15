@@ -7,7 +7,7 @@ use std::sync::Arc;
 use axum::{
     Json,
     body::Body,
-    extract::{Path, Request, State},
+    extract::{DefaultBodyLimit, Path, Request, State},
     http::{HeaderMap, StatusCode},
     response::{IntoResponse, Response},
     routing::post,
@@ -15,6 +15,7 @@ use axum::{
 };
 use bytes::Bytes;
 use reqwest::Client;
+use secrecy::SecretString;
 use serde_json::json;
 use tower_http::trace::TraceLayer;
 use tracing::info;
@@ -27,7 +28,7 @@ use config::{AllowEntry, Config};
 
 struct AppState {
     ha_url: String,
-    token: String,
+    token: SecretString,
     allow: Vec<AllowEntry>,
     client: Client,
 }
@@ -116,6 +117,7 @@ async fn main() -> anyhow::Result<()> {
     let app = Router::new()
         .route("/api/services/{domain}/{service}", post(services_handler))
         .fallback(fallback)
+        .layer(DefaultBodyLimit::max(cfg.max_body_bytes))
         .layer(TraceLayer::new_for_http())
         .with_state(state);
 

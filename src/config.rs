@@ -1,4 +1,6 @@
 use anyhow::{Context, Result};
+use reqwest::Url;
+use secrecy::SecretString;
 use serde::Deserialize;
 use std::fs;
 
@@ -22,6 +24,9 @@ pub struct Config {
     /// Path to the file containing the HA bearer token. Defaults to `.token`.
     #[serde(default = "default_token_file")]
     pub token_file: String,
+    /// Maximum allowed incoming request body size in bytes. Defaults to 65536 (64 KiB).
+    #[serde(default = "default_max_body_bytes")]
+    pub max_body_bytes: usize,
     /// Domain / service allow-list.
     #[serde(default)]
     pub allow: Vec<AllowEntry>,
@@ -35,19 +40,45 @@ fn default_token_file() -> String {
     ".token".to_string()
 }
 
+fn default_max_body_bytes() -> usize {
+    65536
+}
+
 impl Config {
-    /// Load configuration from `config.toml` in the current directory.
+    /// Load and validate configuration from `config.toml` in the current directory.
     pub fn load() -> Result<Self> {
         let raw = fs::read_to_string("config.toml").context("failed to read config.toml")?;
-        toml::from_str(&raw).context("failed to parse config.toml")
+        let cfg: Self = toml::from_str(&raw).context("failed to parse config.toml")?;
+        cfg.validate()
+    }
+
+    fn validate(self) -> Result<Self> {
+        // Parse and validate ha_url: must be a well-formed http/https URL.
+        let url = Url::parse(&self.ha_url)
+            .with_context(|| format!("invalid ha_url '{}': not a valid URL", self.ha_url))?;
+
+        anyhow::ensure!(
+            url.scheme() == "http" || url.scheme() == "https",
+            "invalid ha_url '{}': scheme must be http or https, got '{}'",
+            self.ha_url,
+            url.scheme()
+        );
+
+        // Normalise: strip trailing slash so proxy.rs can unconditionally append the path.
+        let ha_url = self.ha_url.trim_end_matches('/').to_string();
+
+        Ok(Self { ha_url, ..self })
     }
 }
 
 /// Read the bearer token from the path specified in `token_file`.
-pub fn load_token(path: &str) -> Result<String> {
+///
+/// Returns a [`SecretString`] so the value is zeroed on drop and cannot
+/// be accidentally printed via `Debug` or `Display`.
+pub fn load_token(path: &str) -> Result<SecretString> {
     let raw = fs::read_to_string(path)
         .with_context(|| format!("failed to read token file '{}'", path))?;
     let token = raw.trim().to_string();
     anyhow::ensure!(!token.is_empty(), "token file '{}' is empty", path);
-    Ok(token)
+    Ok(SecretString::from(token))
 }
