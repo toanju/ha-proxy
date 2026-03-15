@@ -18,7 +18,7 @@ pub struct AllowEntry {
 pub struct Config {
     /// Base URL of the Home Assistant instance, e.g. `http://homeassistant.local:8123`.
     pub ha_url: String,
-    /// Address the proxy listens on, e.g. `0.0.0.0:3000`.
+    /// Address the proxy listens on, e.g. `0.0.0.0:8080`.
     #[serde(default = "default_listen")]
     pub listen: String,
     /// Path to the file containing the HA bearer token. Defaults to `.token`.
@@ -33,7 +33,7 @@ pub struct Config {
 }
 
 fn default_listen() -> String {
-    "0.0.0.0:3000".to_string()
+    "0.0.0.0:8080".to_string()
 }
 
 fn default_token_file() -> String {
