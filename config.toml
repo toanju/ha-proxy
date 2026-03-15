@@ -1,0 +1,26 @@
+# Home Assistant base URL
+ha_url = "https://homeassistant.local:8123"
+
+# Address the proxy listens on
+listen = "0.0.0.0:8080"
+
+# Path to the file containing the HA long-lived access token.
+# When running in a container, mount the token file and set this
+# to the mount path (e.g. "/.token"). Defaults to ".token".
+token_file = ".token"
+
+# Allow-list: each [[allow]] entry declares a domain and which of its
+# services may be called. An empty `services` list means all services
+# for that domain are permitted.
+
+[[allow]]
+domain   = "light"
+services = ["turn_on", "turn_off", "toggle"]
+
+[[allow]]
+domain   = "switch"
+services = ["turn_on", "turn_off"]
+
+[[allow]]
+domain   = "climate"
+services = []   # empty = all services for this domain are allowed
