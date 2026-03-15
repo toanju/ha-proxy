@@ -10,7 +10,7 @@ use axum::{
     extract::{DefaultBodyLimit, Path, Request, State},
     http::{HeaderMap, StatusCode},
     response::{IntoResponse, Response},
-    routing::post,
+    routing::{get, post},
     Router,
 };
 use bytes::Bytes;
@@ -82,6 +82,14 @@ async fn services_handler(
 }
 
 // ---------------------------------------------------------------------------
+// Health check
+// ---------------------------------------------------------------------------
+
+async fn health() -> Response {
+    (StatusCode::OK, Json(json!({ "status": "ok" }))).into_response()
+}
+
+// ---------------------------------------------------------------------------
 // Fallback — any unmatched route
 // ---------------------------------------------------------------------------
 
@@ -116,6 +124,7 @@ async fn main() -> anyhow::Result<()> {
 
     let app = Router::new()
         .route("/api/services/{domain}/{service}", post(services_handler))
+        .route("/health", get(health))
         .fallback(fallback)
         .layer(DefaultBodyLimit::max(cfg.max_body_bytes))
         .layer(TraceLayer::new_for_http())
