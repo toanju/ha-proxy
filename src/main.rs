@@ -67,10 +67,7 @@ async fn services_handler(
         &state.client,
         &state.ha_url,
         &state.token,
-        &domain,
-        &service,
-        content_type,
-        body,
+        proxy::ForwardRequest { domain: &domain, service: &service, content_type, body },
     )
     .await
     {
