@@ -45,10 +45,12 @@ fn default_max_body_bytes() -> usize {
 }
 
 impl Config {
-    /// Load and validate configuration from `config.toml` in the current directory.
-    pub fn load() -> Result<Self> {
-        let raw = fs::read_to_string("config.toml").context("failed to read config.toml")?;
-        let cfg: Self = toml::from_str(&raw).context("failed to parse config.toml")?;
+    /// Load and validate configuration from the given path.
+    pub fn load(path: &str) -> Result<Self> {
+        let raw = fs::read_to_string(path)
+            .with_context(|| format!("failed to read config file '{}'", path))?;
+        let cfg: Self = toml::from_str(&raw)
+            .with_context(|| format!("failed to parse config file '{}'", path))?;
         cfg.validate()
     }
 

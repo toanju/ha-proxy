@@ -23,6 +23,39 @@ use tracing::info;
 use config::{AllowEntry, Config};
 
 // ---------------------------------------------------------------------------
+// CLI argument parsing (no extra dependencies)
+// ---------------------------------------------------------------------------
+
+/// Parse `-c <path>` / `--config <path>` from the process arguments.
+/// Returns the config file path, defaulting to `"config.toml"`.
+fn config_path_from_args() -> anyhow::Result<String> {
+    let mut args = std::env::args().skip(1);
+    while let Some(arg) = args.next() {
+        match arg.as_str() {
+            "-c" | "--config" => {
+                let path = args.next().ok_or_else(|| {
+                    anyhow::anyhow!("flag '{}' requires a value (path to config file)", arg)
+                })?;
+                return Ok(path);
+            }
+            other if other.starts_with("--config=") => {
+                return Ok(other.trim_start_matches("--config=").to_string());
+            }
+            "-h" | "--help" => {
+                eprintln!("Usage: ha-proxy [-c|--config <path>]");
+                eprintln!();
+                eprintln!("  -c, --config <path>  Path to the TOML config file (default: config.toml)");
+                std::process::exit(0);
+            }
+            other => {
+                anyhow::bail!("unknown argument '{}' (use --help for usage)", other);
+            }
+        }
+    }
+    Ok("config.toml".to_string())
+}
+
+// ---------------------------------------------------------------------------
 // Shared application state
 // ---------------------------------------------------------------------------
 
@@ -107,7 +140,8 @@ async fn main() -> anyhow::Result<()> {
         )
         .init();
 
-    let cfg = Config::load()?;
+    let config_path = config_path_from_args()?;
+    let cfg = Config::load(&config_path)?;
     let token = config::load_token(&cfg.token_file)?;
 
     let state = Arc::new(AppState {
