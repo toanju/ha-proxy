@@ -1,5 +1,5 @@
 # ── Stage 1: build ──────────────────────────────────────────────────────────
-FROM rust:1.94.0-slim AS builder
+FROM rust:1.94.0-slim@sha256:7d3701660d2aa7101811ba0c54920021452aa60e5bae073b79c2b137a432b2f4 AS builder
 
 WORKDIR /build
 
@@ -18,7 +18,7 @@ RUN touch src/main.rs \
     && cargo build --release
 
 # ── Stage 2: runtime ────────────────────────────────────────────────────────
-FROM gcr.io/distroless/cc-debian12
+FROM gcr.io/distroless/cc-debian12@sha256:329e54034ce498f9c6b345044e8f530c6691f99e94a92446f68c0adf9baa8464
 
 WORKDIR /
 
