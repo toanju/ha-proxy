@@ -26,4 +26,5 @@ COPY --from=builder /build/target/release/ha-proxy /usr/local/bin/ha-proxy
 
 EXPOSE 8080
 
+USER nonroot
 ENTRYPOINT ["/usr/local/bin/ha-proxy"]
