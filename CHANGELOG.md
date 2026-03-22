@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/toanju/ha-proxy/compare/v0.1.4...v0.1.5) (2026-03-22)
+
+
+### Bug Fixes
+
+* use uid instead of name for nonroot ([#26](https://github.com/toanju/ha-proxy/issues/26)) ([1f81a17](https://github.com/toanju/ha-proxy/commit/1f81a17f9b8c5e0b10c66a91b558d3c6867bcbe1))
+
 ## [0.1.4](https://github.com/toanju/ha-proxy/compare/v0.1.3...v0.1.4) (2026-03-22)
 
 
