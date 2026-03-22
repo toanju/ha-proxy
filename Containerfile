@@ -26,5 +26,6 @@ COPY --from=builder /build/target/release/ha-proxy /usr/local/bin/ha-proxy
 
 EXPOSE 8080
 
-USER nonroot
+# nonroot/65532 - https://github.com/GoogleContainerTools/distroless/blob/main/common/variables.bzl
+USER 65532
 ENTRYPOINT ["/usr/local/bin/ha-proxy"]
