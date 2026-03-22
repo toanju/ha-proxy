@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/toanju/ha-proxy/compare/v0.1.2...v0.1.3) (2026-03-22)
+
+
+### Bug Fixes
+
+* release please versioning ([#22](https://github.com/toanju/ha-proxy/issues/22)) ([44c5359](https://github.com/toanju/ha-proxy/commit/44c5359efff1be956bf2a19da4f6be379f7d9c78))
+
 ## [0.1.2](https://github.com/toanju/ha-proxy/compare/v0.1.1...v0.1.2) (2026-03-20)
 
 
