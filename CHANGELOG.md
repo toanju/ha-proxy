@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/toanju/ha-proxy/compare/v0.1.3...v0.1.4) (2026-03-22)
+
+
+### Bug Fixes
+
+* use nonroot user, rp try ([#24](https://github.com/toanju/ha-proxy/issues/24)) ([0661d02](https://github.com/toanju/ha-proxy/commit/0661d02e446d16541fd39312519ab6584fdc04dd))
+
 ## [0.1.3](https://github.com/toanju/ha-proxy/compare/v0.1.2...v0.1.3) (2026-03-22)
 
 
