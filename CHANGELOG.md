@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.7](https://github.com/toanju/ha-proxy/compare/v0.1.6...v0.1.7) (2026-03-27)
+
+
+### Bug Fixes
+
+* **deps:** pin gcr.io/distroless/cc-debian13 docker tag to e1cc90d ([#30](https://github.com/toanju/ha-proxy/issues/30)) ([003148f](https://github.com/toanju/ha-proxy/commit/003148f8616eed61df7b0f14e3fb53dcf955c047))
+* **deps:** update rust docker tag to v1.94.1 ([#34](https://github.com/toanju/ha-proxy/issues/34)) ([86f842b](https://github.com/toanju/ha-proxy/commit/86f842bcfc654c2fe518df6a5f0b868fb6043ec4))
+* **deps:** update rust:1.94.1-slim docker digest to 1d0000a ([#35](https://github.com/toanju/ha-proxy/issues/35)) ([cda6207](https://github.com/toanju/ha-proxy/commit/cda6207625be6e84edf6bf19b8cb34cce897bce5))
+
 ## [0.1.6](https://github.com/toanju/ha-proxy/compare/v0.1.5...v0.1.6) (2026-03-22)
 
 
