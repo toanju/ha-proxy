@@ -1,5 +1,5 @@
 # ── Stage 1: build ──────────────────────────────────────────────────────────
-FROM rust:1.96.0-slim@sha256:26abcef3d79b8d890c4ceb17093154573e1f6479cf6dd7c1450043b8458350f6 AS builder
+FROM rust:1.96.0-slim@sha256:a818c23087b65be495e78fa329d577481e7700748bb2d1f28658b6bce3c7b931 AS builder
 
 WORKDIR /build
 
