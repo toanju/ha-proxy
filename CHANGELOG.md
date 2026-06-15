@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.2](https://github.com/toanju/ha-proxy/compare/v0.3.1...v0.3.2) (2026-06-15)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate tower-http to 0.7 ([#106](https://github.com/toanju/ha-proxy/issues/106)) ([8a71e07](https://github.com/toanju/ha-proxy/commit/8a71e07445a06351665e3634c7307e6d9312d369))
+* **deps:** update rust:1.96.0-slim docker digest to 3b05f7c ([#103](https://github.com/toanju/ha-proxy/issues/103)) ([395b449](https://github.com/toanju/ha-proxy/commit/395b4498aee374df5940e26ad37d0045554f4e03))
+
 ## [0.3.1](https://github.com/toanju/ha-proxy/compare/v0.3.0...v0.3.1) (2026-06-11)
 
 
