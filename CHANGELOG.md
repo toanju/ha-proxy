@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/toanju/ha-proxy/compare/v0.5.0...v0.5.1) (2026-08-21)
+
+
+### Bug Fixes
+
+* **deps:** update gcr.io/distroless/cc-debian13 docker digest to e86cf4f ([#168](https://github.com/toanju/ha-proxy/issues/168)) ([4783159](https://github.com/toanju/ha-proxy/commit/478315981bf9f5d9668ef1733934b0f054f42aaa))
+
 ## [0.5.0](https://github.com/toanju/ha-proxy/compare/v0.4.6...v0.5.0) (2026-08-20)
 
 
