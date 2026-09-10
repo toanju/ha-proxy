@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.3](https://github.com/toanju/ha-proxy/compare/v0.5.2...v0.5.3) (2026-09-10)
+
+
+### Bug Fixes
+
+* **deps:** update rust docker tag to v1.98.1 ([#182](https://github.com/toanju/ha-proxy/issues/182)) ([3af99a9](https://github.com/toanju/ha-proxy/commit/3af99a919e53053c1a1b8cf3bbb318038a656dd3))
+
 ## [0.5.2](https://github.com/toanju/ha-proxy/compare/v0.5.1...v0.5.2) (2026-08-28)
 
 
