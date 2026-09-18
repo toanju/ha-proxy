@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.4](https://github.com/toanju/ha-proxy/compare/v0.5.3...v0.5.4) (2026-09-18)
+
+
+### Bug Fixes
+
+* **deps:** update gcr.io/distroless/cc-debian13 docker digest to 4594d59 ([#185](https://github.com/toanju/ha-proxy/issues/185)) ([25787c4](https://github.com/toanju/ha-proxy/commit/25787c40f2362ab24288893ef09d750e79bd4ed7))
+* **deps:** update rust:1.98.1-slim docker digest to 3999a7f ([#189](https://github.com/toanju/ha-proxy/issues/189)) ([d0355ab](https://github.com/toanju/ha-proxy/commit/d0355ab58356158320790f7702c95ed0fb125538))
+
 ## [0.5.3](https://github.com/toanju/ha-proxy/compare/v0.5.2...v0.5.3) (2026-09-10)
 
 
