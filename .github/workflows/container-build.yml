@@ -64,7 +64,7 @@ jobs:
   # ── Native arm64 build ─────────────────────────────────────────────────────
   build-arm64:
     name: build (linux/arm64)
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-26.04-arm
     outputs:
       digest: ${{ steps.build.outputs.digest }}
     steps:
