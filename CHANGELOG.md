@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.8](https://github.com/toanju/ha-proxy/compare/v0.5.7...v0.5.8) (2026-10-01)
+
+
+### Bug Fixes
+
+* **deps:** update gcr.io/distroless/cc-debian13 docker digest to 1597832 ([#202](https://github.com/toanju/ha-proxy/issues/202)) ([bffde20](https://github.com/toanju/ha-proxy/commit/bffde20eeb710a7c25384fecb9bac9d3b297f368))
+
 ## [0.5.7](https://github.com/toanju/ha-proxy/compare/v0.5.6...v0.5.7) (2026-09-26)
 
 
