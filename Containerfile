@@ -18,7 +18,7 @@ RUN touch src/main.rs \
     && cargo build --release
 
 # ── Stage 2: runtime ────────────────────────────────────────────────────────
-FROM gcr.io/distroless/cc-debian13@sha256:d74d144baa124dd9defd01d71872bb56c49d4441dba6153ccf790364f97e64b1
+FROM gcr.io/distroless/cc-debian13@sha256:58e12be899275afaa05f1b03051ab19037ed7f252528e57a3a9ad7e220a62578
 
 WORKDIR /
 
