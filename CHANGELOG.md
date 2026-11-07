@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.6.7](https://github.com/toanju/ha-proxy/compare/v0.6.6...v0.6.7) (2026-11-07)
+
+
+### Bug Fixes
+
+* **deps:** update rust:1.99.1-slim docker digest to 7eab7ce ([#253](https://github.com/toanju/ha-proxy/issues/253)) ([2b2d28e](https://github.com/toanju/ha-proxy/commit/2b2d28e9a9404995c3f2271d70d0e9f3148a4946))
+* **deps:** update rust:1.99.1-slim docker digest to 9daf2b2 ([#248](https://github.com/toanju/ha-proxy/issues/248)) ([442312c](https://github.com/toanju/ha-proxy/commit/442312c95dace68b87c35ed05f492eeefa611c38))
+* **deps:** update rust:1.99.1-slim docker digest to ea0999f ([#250](https://github.com/toanju/ha-proxy/issues/250)) ([363a0e6](https://github.com/toanju/ha-proxy/commit/363a0e66b210882692e5f51c5754e6f7e5f9b2e2))
+
 ## [0.6.6](https://github.com/toanju/ha-proxy/compare/v0.6.5...v0.6.6) (2026-11-01)
 
 
