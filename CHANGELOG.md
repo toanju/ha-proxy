@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.7.0](https://github.com/toanju/ha-proxy/compare/v0.6.7...v0.7.0) (2026-11-12)
+
+
+### Features
+
+* **deps:** update rust docker tag to v1.100.0 ([#259](https://github.com/toanju/ha-proxy/issues/259)) ([ebb7e65](https://github.com/toanju/ha-proxy/commit/ebb7e65f7cd308a191e0af20df6afc91f9ff0e24))
+
+
+### Bug Fixes
+
+* **deps:** update gcr.io/distroless/cc-debian13 docker digest to 809d04a ([#258](https://github.com/toanju/ha-proxy/issues/258)) ([52daa8a](https://github.com/toanju/ha-proxy/commit/52daa8a9de92a7b7803bc296b769b2319497ec72))
+* **deps:** update gcr.io/distroless/cc-debian13 docker digest to e1f5543 ([#255](https://github.com/toanju/ha-proxy/issues/255)) ([8d01fa9](https://github.com/toanju/ha-proxy/commit/8d01fa96dd5909ebc82db8533b9f02ac88667687))
+* **deps:** update rust:1.99.1-slim docker digest to f6c4a35 ([#256](https://github.com/toanju/ha-proxy/issues/256)) ([7643a51](https://github.com/toanju/ha-proxy/commit/7643a51103e0b8d8564ad9bb321b79f00600ed9e))
+
 ## [0.6.7](https://github.com/toanju/ha-proxy/compare/v0.6.6...v0.6.7) (2026-11-07)
 
 
